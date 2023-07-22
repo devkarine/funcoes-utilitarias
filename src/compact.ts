@@ -8,5 +8,12 @@
  * @returns somente os itens definidos.
  */
 export const compact = (items: unknown[]): unknown[] => {
-  return [];
+  const retorno = [];
+  for (const item of items) {
+    if (item) {
+      retorno.push(item);
+    }
+  }
+
+  return retorno;
 };
