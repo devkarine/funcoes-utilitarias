@@ -11,6 +11,13 @@ type Record = {
  * @param args
  * @returns
  */
-export const toPairs = (record: Record): KeyAndValue[] => {
-  return null;
+export const toPairs = (record: Record,): [string, string | number | symbol | boolean][] => {
+  const pairs: [string, string | number | symbol | boolean][] = [];
+
+  for (const key in record) {
+    const value = record[key];
+    pairs.push([key, value]);
+  }
+
+  return pairs;
 };
