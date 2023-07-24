@@ -20,5 +20,13 @@ import { Record } from '../types/record';
  * @returns
  */
 export const template = (templateString: string, matchers: Record): string => {
-  return null;
+  let resultString = templateString;
+
+  for (const key in matchers) {
+    const pattern = `{{${key}}}`;
+    const value = matchers[key];
+    resultString = resultString.replace(new RegExp(pattern, 'g'),String(value),);
+  }
+
+  return resultString;
 };
