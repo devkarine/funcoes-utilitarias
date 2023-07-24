@@ -8,5 +8,23 @@
  * @returns somente os itens definidos.
  */
 export const difference = (left: number[], right: number[]): number[] => {
-  return null;
+  const result: number[] = [];
+
+  for (let i = 0; i < left.length; i++) {
+    const item = left[i];
+    let found = false;
+
+    for (let j = 0; j < right.length; j++) {
+      if (item === right[j]) {
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      result.push(item);
+    }
+  }
+
+  return result;
 };
