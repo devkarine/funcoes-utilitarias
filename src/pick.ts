@@ -11,9 +11,19 @@ import { Record } from '../types/record';
  * @param args
  * @returns
  */
-export const pick = <T extends Record>(
+
+export const pick = <T extends Record, K extends keyof T>(
   record: T,
-  ...args: (keyof T)[]
-): Record => {
-  return null;
+  ...args: K[]
+): Pick<T, K> => {
+  const pickedRecord: Pick<T, K> = {} as Pick<T, K>;
+
+  for (let i = 0; i < args.length; i++) {
+    const key = args[i];
+    if (key in record) {
+      pickedRecord[key] = record[key];
+    }
+  }
+
+  return pickedRecord;
 };
