@@ -8,5 +8,20 @@
  * @returns somente os itens definidos.
  */
 export const uniq = <T>(args: T[]): T[] => {
-  return null;
+  const uniqueItems: T[] = [];
+
+  for (const item of args) {
+    let isUnique = true;
+    for (const uniqueItem of uniqueItems) {
+      if (uniqueItem === item) {
+        isUnique = false;
+        break;
+      }
+    }
+    if (isUnique) {
+      uniqueItems.push(item);
+    }
+  }
+
+  return uniqueItems;
 };
