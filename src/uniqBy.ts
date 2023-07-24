@@ -19,5 +19,22 @@ import { Record } from '../types/record';
  * @returns somente os itens definidos.
  */
 export const uniqBy = <T extends Record>(args: T[], key: keyof T): T[] => {
-  return null;
+  const uniqueItems: T[] = [];
+
+  for (const item of args) {
+    let isUnique = true;
+
+    for (const uniqueItem of uniqueItems) {
+      if (item[key] === uniqueItem[key]) {
+        isUnique = false;
+        break;
+      }
+    }
+
+    if (isUnique) {
+      uniqueItems.push(item);
+    }
+  }
+
+  return uniqueItems;
 };
