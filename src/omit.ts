@@ -15,5 +15,22 @@ export const omit = <T extends Record>(
   record: T,
   ...args: (keyof T)[]
 ): Record => {
-  return null;
+  const omittedRecord: Record = {};
+
+  for (const key in record) {
+    let shouldOmit = false;
+
+    for (let i = 0; i < args.length; i++) {
+      if (key === args[i]) {
+        shouldOmit = true;
+        break;
+      }
+    }
+
+    if (!shouldOmit) {
+      omittedRecord[key] = record[key];
+    }
+  }
+
+  return omittedRecord;
 };
