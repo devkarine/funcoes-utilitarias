@@ -10,5 +10,12 @@ import { Record } from '../types/record';
  * @returns
  */
 export const invert = (record: Record): Record => {
-  return null;
+  const invertedRecord: Record = {};
+
+  for (const key in record) {
+    const value = record[key];
+    invertedRecord[String(value)] = key;
+  }
+
+  return invertedRecord;
 };
