@@ -13,5 +13,14 @@
  * @returns
  */
 export const toPath = (path: string): string[] => {
-  return null;
+  const pattern = /(?:(?:\w+)|\[(\w+)\])/g;
+  const pathArray = [];
+  let match;
+
+  while ((match = pattern.exec(path))) {
+    const token = match[1] || match[0];
+    pathArray.push(token);
+  }
+
+  return pathArray;
 };
