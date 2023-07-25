@@ -25,7 +25,10 @@ export const template = (templateString: string, matchers: Record): string => {
   for (const key in matchers) {
     const pattern = `{{${key}}}`;
     const value = matchers[key];
-    resultString = resultString.replace(new RegExp(pattern, 'g'),String(value),);
+    resultString = resultString.replace(
+      new RegExp(pattern, 'g'),
+      String(value),
+    );
   }
 
   return resultString;

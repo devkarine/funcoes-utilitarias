@@ -11,7 +11,6 @@
  * @returns
  */
 export const chunk = (valores: number[], tamanho: number): number[][] => {
- 
   const resultado: number[][] = [];
 
   for (const valor of valores) {

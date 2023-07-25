@@ -1,4 +1,3 @@
-import { KeyAndValue } from '../types/keyAndValue';
 type Record = {
   [key: string]: string | number | symbol | boolean;
 };
@@ -11,7 +10,9 @@ type Record = {
  * @param args
  * @returns
  */
-export const toPairs = (record: Record,): [string, string | number | symbol | boolean][] => {
+export const toPairs = (
+  record: Record,
+): [string, string | number | symbol | boolean][] => {
   const pairs: [string, string | number | symbol | boolean][] = [];
 
   for (const key in record) {
